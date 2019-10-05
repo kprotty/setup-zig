@@ -35,8 +35,10 @@ async function main () {
     return
   }
 
+  console.log('Using Zig', version)
   let zigPath = cache.find('zig', version)
   if (!zigPath) {
+    console.log('-- Not cached, downloading...')
     zigPath = await downloadZig(version)
   }
 
