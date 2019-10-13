@@ -34,7 +34,7 @@ async function downloadZig (version) {
   const availableVersions = Object.keys(index).filter((v) => semver.valid(v))
   const useVersion = semver.maxSatisfying(availableVersions, version)
 
-  const meta = index[useVersion || version]
+  const meta = index[version || useVersion];
   if (!meta || !meta[host]) {
     throw new Error(`Could not find version ${version} for platform ${host}`)
   }
