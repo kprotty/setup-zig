@@ -31,7 +31,7 @@ async function downloadZig (version) {
 
   const index = await getJSON({ url: 'https://ziglang.org/download/index.json' })
 
-  const availableVersions = Object.keys(index).filter((v) => semver.valid(v))
+  const availableVersions = Object.keys(index);
   const useVersion = semver.maxSatisfying(availableVersions, version)
 
   const meta = index[useVersion || version]
